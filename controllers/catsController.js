@@ -12,15 +12,15 @@ router.get("/", function(req, res) {
 // Create all our routes and set up logic within those routes where required.
 router.get("/data", function(req, res) {
   cat.all(function(data) {
-    res.json({ cats: data });
+    res.json({ outfit: data });
   });
 });
 
-router.post("/api/cats", function(req, res) {
+router.post("/make/:type/:color/:season1/:occasion1/:gender", function(req, res) {
   cat.create([
-    "name", "sleepy"
+    "bottom", "orange","summer", "casual", "male"
   ], [
-    req.body.name, req.body.sleepy
+    req.body.type, req.body.color, req.body.season1, req.body.occasion1, req.body.gender
   ], function(result) {
     // Send back the ID of the new quote
     res.json({ id: result.insertId });

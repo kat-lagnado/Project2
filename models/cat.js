@@ -3,13 +3,13 @@ var orm = require("../config/orm.js");
 
 var cat = {
   all: function(cb) {
-    orm.all("cats", function(res) {
+    orm.all("outfit", function(res) {
       cb(res);
     });
   },
   // The variables cols and vals are arrays.
   create: function(cols, vals, cb) {
-    orm.create("cats", cols, vals, function(res) {
+    orm.create("outfit", cols, vals, function(res) {
       cb(res);
     });
   },
