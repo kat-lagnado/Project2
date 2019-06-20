@@ -6,8 +6,8 @@ $(function() {
     var sleepyElem = $("#sleepyCats");
     var nosleepyElem = $("#notSleepyCats");
 
-    var cats = data.cats;
-    var len = cats.length;
+    var outfits = data.outfits;
+    var len = outfits.length;
 
     for (var i = 0; i < len; i++) {
       var new_elem =
@@ -64,7 +64,7 @@ $(function() {
     // Make sure to preventDefault on a submit event.
     event.preventDefault();
 
-    var newCat = {
+    var newCatnewOutfit = {
       name: $("#ca")
         .val()
         .trim(),
@@ -74,11 +74,11 @@ $(function() {
     };
 
     // Send the POST request.
-    $.ajax("/api/cats", {
+    $.ajax("/api/outfits", {
       type: "POST",
-      data: newCat
+      data: newOutfit
     }).then(function() {
-      console.log("created new cat");
+      console.log("created new outfit");
       // Reload the page to get the updated list
       location.reload();
     });
@@ -88,7 +88,7 @@ $(function() {
     var id = $(this).data("id");
 
     // Send the DELETE request.
-    $.ajax("/api/cats/" + id, {
+    $.ajax("/api/outfits/" + id, {
       type: "DELETE"
     }).then(function() {
       console.log("deleted cat", id);
