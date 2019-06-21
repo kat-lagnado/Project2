@@ -1,13 +1,4 @@
-### Schema
 
-drop database cat_db;
-CREATE DATABASE cat_db;
-USE cat_db;
-
-#Table for outfits
-#User has the ability to add up to 4 seasons for a specific item (Only the first one is mandatory)
-#User is able to add up 4 occasions (fomral, work, athletic, casual)
-#User can choose one of the following clothing types (top, bottom, shoes, accessory) 
 CREATE TABLE outfit
 (
     id int NOT NULL AUTO_INCREMENT,
