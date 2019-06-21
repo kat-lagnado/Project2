@@ -1,4 +1,3 @@
-### Schema
 
 CREATE TABLE outfit
 (
@@ -16,3 +15,4 @@ CREATE TABLE outfit
 	gender VARCHAR(50) NOT NULL,
     PRIMARY KEY (id)
 );
+

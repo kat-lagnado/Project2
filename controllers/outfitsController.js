@@ -20,7 +20,16 @@ router.post("/api/outfitadd", function(req, res) {
   cat.create([
     "type", "occasion", "season", "color", "gender"
   ], [
-    req.body.type, req.body.occasion, req.body.season, req.body.color, req.body.gender
+    req.body.type, req.body.occasion, req.body.season, req.body.color, req.body.gender]
+  )
+});
+
+router.post("/make/:type/:color/:season1/:occasion1/:gender", function(req, res) {
+  cat.create([
+    "bottom", "orange","summer", "casual", "male"
+  ], [
+    req.body.type, req.body.color, req.body.season1, req.body.occasion1, req.body.gender
+>>>>>>> master:controllers/catsController.js
   ], function(result) {
     // Send back the ID of the new quote
     res.json({ id: result.insertId });
