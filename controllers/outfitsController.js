@@ -11,13 +11,13 @@ router.get("/", function(req, res) {
 
 // Create all our routes and set up logic within those routes where required.
 router.get("/data", function(req, res) {
-  cat.all(function(data) {
+  outfit.all(function(data) {
     res.json({ outfits: data });
   });
 });
 
 router.post("/api/outfitadd", function(req, res) {
-  cat.create([
+  outfit.create([
     "type", "occasion", "season", "color", "gender"
   ], [
     req.body.type, req.body.occasion, req.body.season, req.body.color, req.body.gender
@@ -47,7 +47,7 @@ router.post("/api/outfitadd", function(req, res) {
 router.delete("/api/outfits/:id", function(req, res) {
   var condition = "id = " + req.params.id;
 
-  cat.delete(condition, function(result) {
+  outfit.delete(condition, function(result) {
     if (result.affectedRows == 0) {
       // If no rows were changed, then the ID must not exist, so 404
       return res.status(404).end();
