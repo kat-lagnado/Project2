@@ -2,7 +2,7 @@ var express = require("express");
 
 var router = express.Router();
 
-// Import the model (cat.js) to use its database functions.
+// Import the model (outfit.js) to use its database functions.
 var outfit = require("../models/outfit.js");
 
 router.get("/", function(req, res) {
@@ -11,37 +11,37 @@ router.get("/", function(req, res) {
 
 // Create all our routes and set up logic within those routes where required.
 router.get("/data", function(req, res) {
-  cat.all(function(data) {
-    res.json({ outfits: data });
+  outfit.all(function(data) {
+    res.json({ outfit: data });
   });
 });
 
-router.post("/api/outfitadd", function(req, res) {
-  cat.create([
-    "type", "occasion", "season", "color", "gender"
-  ], [
-    req.body.type, req.body.occasion, req.body.season, req.body.color, req.body.gender]
-  )
-});
+// router.post("/api/add", function(req, res) {
+//   outfit.create([
+//     "type", "occasion", "season", "color", "gender"
+//   ], [
+//     req.body.type, req.body.occasion, req.body.season, req.body.color, req.body.gender]
+//   )
+// });
 
-router.post("/make/:type/:color/:season1/:occasion1/:gender", function(req, res) {
-  cat.create([
-    "bottom", "orange","summer", "casual", "male"
+router.post("/api/create", function(req, res) {
+  outfit.create([
+    "type", "color","season", "occasion", "gender"
   ], [
-    req.body.type, req.body.color, req.body.season1, req.body.occasion1, req.body.gender
->>>>>>> master:controllers/catsController.js
+    req.body.type, req.body.color, req.body.season, req.body.occasion, req.body.gender
+
   ], function(result) {
     // Send back the ID of the new quote
     res.json({ id: result.insertId });
   });
 });
 
-// router.put("/api/cats/:id", function(req, res) {
+// router.put("/api/outfits/:id", function(req, res) {
 //   var condition = "id = " + req.params.id;
 
 //   console.log("condition", condition);
 
-//   cat.update({
+//   outfit.update({
 //     sleepy: req.body.sleepy
 //   }, condition, function(result) {
 //     if (result.changedRows == 0) {
@@ -56,7 +56,7 @@ router.post("/make/:type/:color/:season1/:occasion1/:gender", function(req, res)
 router.delete("/api/outfits/:id", function(req, res) {
   var condition = "id = " + req.params.id;
 
-  cat.delete(condition, function(result) {
+  outfit.delete(condition, function(result) {
     if (result.affectedRows == 0) {
       // If no rows were changed, then the ID must not exist, so 404
       return res.status(404).end();
