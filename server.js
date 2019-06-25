@@ -12,7 +12,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 // Import routes and give the server access to them.
-var routes = require("./controllers/catsController.js");
+var routes = require("./controllers/outfitscontroller.js");
 
 app.use(routes);
 
@@ -21,3 +21,9 @@ app.listen(PORT, function() {
   // Log (server-side) when our server has started
   console.log("Server listening on: http://localhost:" + PORT);
 });
+
+
+
+
+
+

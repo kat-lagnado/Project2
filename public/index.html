@@ -1,37 +1,68 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="stylesheet" href="/assets/css/style.css" type="text/css" />
-    <title>MVC With Cats!</title>
-    <script src="https://code.jquery.com/jquery.js"></script>
-    <script src="/assets/js/cats.js"></script>
-  </head>
-  <body>
-    <h1>Cats!</h1>
+<html lang="en-us">
+<meta charset="UTF-8">
+<title>
+</title>
 
-    <h2>Cats that are not sleepy!</h2>
+</html>
 
-    <ul id="notSleepyCats"></ul>
+<head>
+    <!--Import Google Icon Font-->
+    <!-- <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!--Import materialize.css-->
+    <!-- <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/> -->
 
-    <h2>Cats that are sleepy!</h2>
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="css/style.css">
 
-    <ul id="sleepyCats"></ul>
+    <div class="container-fluid">
+        <div class="row" id="banner">
+            <div class="col">
+                <div class="dropdown">
+                    <button class="dropbtn">Choose User</button>
+                    <div class="dropdown-content">
+                        <a target="main"id="Keishawn" href="page2.html">Keishawn</a>
+                        <a target="main" id="Kat" href="page3.html">Kat</a>
+                        <a target="main"  id="Bashari" href="page4.html">Bashari</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-5"></div>
+            <div class="col"> <h2>
+                Outfit Generator
+            </h2>
+                    
+                </div>
+        </div>
+</head>
+<script>
+        function callme(){
+            var name = document.getElementById('keishawn').value;
+            sessionStorage.setItem('userName', name);
+        }
+        function callme(){
+            var name = document.getElementById('kat').value;
+            sessionStorage.setItem('userName', name);
+        }
+        function callme(){
+            var name = document.getElementById('Bashari').value;
+            sessionStorage.setItem('userName', name);
+        }
+    </script>
+<body style="background-color:rgb(158, 154, 154);">
 
-    <h2>Add a Cat</h2>
-    <form class="create-form">
-      <div class="form-group">
-        <label for="ca">Cat Name:</label>
-        <input type="text" id="ca" name="name" />
-      </div>
+    <iframe name="main" src="defaultpage.html" height="650px" width="100%"></iframe>
 
-      <div class="form-group">
-        <label for="sleepy">Sleepy?</label><br />
-        <input type="radio" name="sleepy" value="1" checked /> Sleepy!<br />
-        <input type="radio" name="sleepy" value="0" /> Awake
-      </div>
 
-      <button type="submit">Add Cat</button>
-    </form>
-  </body>
+    </div>
+    </div>
+
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script scr="js/client.js"></script>
+</body>
+</div>
+
 </html>
