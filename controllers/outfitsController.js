@@ -1,12 +1,12 @@
 var express = require("express");
-
+var path = require("path");
 var router = express.Router();
 
 // Import the model (outfit.js) to use its database functions.
 var outfit = require("../models/outfit.js");
 
 router.get("/", function(req, res) {
-  res.sendFile(path.join(__dirname, "public/index.html"));
+  res.sendFile(path.join(__dirname, "../public/upload.html"));
 });
 
 // Create all our routes and set up logic within those routes where required.
@@ -26,9 +26,9 @@ router.get("/data", function(req, res) {
 
 router.post("/api/create", function(req, res) {
   outfit.create([
-    "type", "color","season", "occasion", "gender"
+    "type", "color","season", "occasion", "gender", "url"
   ], [
-    req.body.type, req.body.color, req.body.season, req.body.occasion, req.body.gender
+    req.body.type, req.body.color, req.body.season, req.body.occasion, req.body.gender, req.body.url
 
   ], function(result) {
     // Send back the ID of the new quote

@@ -62,8 +62,8 @@
                     <label class="season-input" for="seasonid">Season</label>
                     <select class="custom-select my-1 mr-sm-2" id="seasonid">
                       <option selected>Select season</option>
-                      <option value="1">Spring/summer</option>
-                      <option value="2">Fall/winter</option>
+                      <option value="Spring/summer">Spring/summer</option>
+                      <option value="Fall/winter">Fall/winter</option>
                     </select>
                     <form class="form-inline">
                       <label class="type-input" for="seasonid">Type of clothes</label>
@@ -120,32 +120,15 @@
     };
 
     console.log(newOutfit);
-    // Console log each of the user inputs to confirm we are receiving them
-    // console.log(color);
-    // console.log(sex);
-    // console.log(season);
-    // console.log(type);
-    // console.log(occassion);
-    // console.log(url);
 
     // Send the POST request
-    $.ajax("/api/outfitAdd", {
+    $.ajax("/api/create", {
     type: "POST",
     data: newOutfit
     }).then(function() {
       console.log("created new outfit");
       // reload the page to get the updated list
       location.reload();
-
-    // $.post("/api/outfitAdd", newOutfit,
-    //   function (data) {
-    //     if (data) {
-    //       alert("Yay, congratulation on the new outfit");
-    //     }
-
-    //     else {
-    //       alert("sorry no outfit for you");
-    //     }
 
         // clear the form when saving
         $("#color-input").val("");
