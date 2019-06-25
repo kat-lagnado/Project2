@@ -56,6 +56,7 @@ router.post("/api/create", function(req, res) {
 // router.delete("/api/outfits/:id", function(req, res) {
 //   var condition = "id = " + req.params.id;
 
+<<<<<<< HEAD
 //   outfit.delete(condition, function(result) {
 //     if (result.affectedRows == 0) {
 //       // If no rows were changed, then the ID must not exist, so 404
@@ -64,6 +65,17 @@ router.post("/api/create", function(req, res) {
 //       res.status(200).end();
 //     }
   
+=======
+  outfit.delete(condition, function(result) {
+    if (result.affectedRows == 0) {
+      // If no rows were changed, then the ID must not exist, so 404
+      return res.status(404).end();
+    } else {
+      res.status(200).end();
+    }
+  });
+});
+>>>>>>> 1396d32185d91c0edf842254d94727321e5c4b3b
 
 // Export routes for server.js to use.
 module.exports = router;
