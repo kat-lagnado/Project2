@@ -1,3 +1,5 @@
+### Schema
+
 drop database outfits_db;
 CREATE DATABASE outfits_db;
 USE outfits_db;
@@ -14,9 +16,24 @@ CREATE TABLE outfit
 	season VARCHAR(50) NOT NULL,
     occasion VARCHAR(50) not null,
 	gender VARCHAR(50) NOT NULL,
-    url VARCHAR(50) NOT NULL,
+    url VARCHAR(50) ,
     PRIMARY KEY (id)
 );
+
+
+INSERT INTO outfit (type, color, season, occasion, gender)
+VALUES ('top', 'white', 'summer', 'work', 'male');
+
+INSERT INTO outfit (type, color, season, occasion, gender)
+VALUES ('top', 'black', 'spring', 'casual', 'male');
+
+INSERT INTO outfit (type, color, season, occasion, gender)
+VALUES ('bottom', 'blue', 'summer', 'work', 'male');
+
+INSERT INTO outfit (type, color, season, occasion, gender)
+VALUES ('dress', 'black', 'winter', 'athletic', 'female');
+
+select * from outfit;
 
 
 INSERT INTO outfit (type, color, season, occasion, gender)

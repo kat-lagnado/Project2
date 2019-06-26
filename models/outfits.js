@@ -25,5 +25,6 @@ var outfit = {
   }
 };
 
-// Export the database functions for the controller (outfitsController.js).
+// Export the database functions for the controller (catsController.js).
 module.exports = outfit;
+
