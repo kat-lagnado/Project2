@@ -1,31 +1,342 @@
 <!DOCTYPE html>
 <html lang="en-us">
-<meta charset="UTF-8">
-<title>
-</title>
-<head> 
-    <!--Import Google Icon Font-->
-    <!-- <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <!--Import materialize.css-->
-    <!-- <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/> -->
 
-    <!--Let browser know website is optimized for mobile-->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <link rel="stylesheet" type="text/css" href="css/style.css">
+<head>
 
-    <div class="dropdown">
-            <button class="dropbtn">Dropdown</button>
-            <div class="Select user">
-              <a href="page2.html" id="Keishawn">Keishawn</a>
-              <a href="page3.html" id="Kat" type="text">Kat</a>
-              <a href="page4.html" id="bashari" type="text">Bashari</a>
-            </div>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sign-Up Today!</title>
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <script scr="js/client.js"></script>
+  <script defer>
+    $(document).ready(function () {
+      loaddata();
+    });
+  </script>
+</head>
+
+<body>
+
+  <div class="container">
+    <div class="row">
+      <!-- Sign-Up Card-->
+      <div class="col-lg-3">
+        <div class="card card-default">
+          <div class="card-header">
+            Please Enter in Parameters
           </div>
-  </head>
+          <!-- <form class="form-inline">
+            <label class="sex-input" for="inlineFormCustomSelectPref">Gender</label>
+            <select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref">
+              <option selected>Choose...</option>
+              <option value="1">male</option>
+              <option value="2">female</option>
+              <option value="2">unisex</option>
+            </select> -->
+          <form class="form-inline">
+            <label class="season-input" for="inlineFormCustomSelectPref">Season</label>
+            <select class="custom-select my-1 mr-sm-2" id="seasonid">
+              <option selected>Select season</option>
+              <option value="Winter">Winter</option>
+              <option value="Spring">Spring</option>
+              <option value="Summer">Summer</option>
+              <option value="Fall">Fall</option>
+            </select>
+            <!-- <form class="form-inline">
+                <label class="type-input" for="inlineFormCustomSelectPref">Season</label>
+                <select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref">
+                  <option selected>Choose...</option>
+                  <option value="1">Hat</option>
+                  <option value="2">top</option>
+                  <option value="3">bottom</option>
+                  <option value="4">shoes</option>
+                  <option value="4">accessory</option>
+                </select> -->
+            <form class="form-inline">
+              <label class="occassion-input" for="inlineFormCustomSelectPref">occassion</label>
+              <select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref">
+                <option selected>Select occasion</option>
+                <option value="Casual">Casual</option>
+                <option value="Work">Work</option>
+                <option value="Athletic">Athletic</option>
+                <option value="Event">Event</option>
+              </select>
+              <button class="btn btn-default" id="add-user" type="submit">Search</button>
+            </form>
+        </div>
+      </div>
 
-  <body>
+      <!-- <div class="col-lg">
+        <div class="card bg-light mb-3" style="max-width: 18rem;">
+          <div class="card-header">Accessory</div>
+          <div class="card-body">
+            <h5 class="card-title">title</h5>
+            <p class="card-text">picture 1</p>
+          </div>
+        </div>
+        <div class="card bg-light mb-3" style="max-width: 18rem;">
+          <div class="card-header">top</div>
+          <div class="card-body">
+            <h5 class="card-title">title</h5>
+            <p class="card-text">picture 2</p>
+          </div>
+        </div>
+      </div>
 
+      <div class="col-lg">
+        <div class="card bg-light mb-3" style="max-width: 18rem;">
+          <div class="card-header">bottom</div>
+          <div class="card-body">
+            <h5 class="card-title">title</h5>
+            <p class="card-text">picture 3</p>
+          </div>
+        </div>
+        <div class="card bg-light mb-3" style="max-width: 18rem;">
+          <div class="card-header">shoes</div>
+          <div class="card-body">
+            <h5 class="card-title">title</h5>
+            <p class="card-text">picture 4</p>
+          </div>
+        </div>
+      </div>
+    </div> -->
+
+
+
+    <!-- <div class="row">
+      <div class="col-lg-12">
+        <div class="card bg-light mb-3">
+          <div class="card-header">Outfit Generated</div>
+          <div class="card-body">
+            <h5 class="card-title"><u>Hat + Top + Bottom + shoes + Accessories</u></h5>
+            <p class="card-text">pic 1 + pic 2 + pic3 + pic4 </p>
+          </div>
+        </div>
+      </div>
+    </div> -->
+
+
+
+  
+
+<style>
+body {
+  font-family: Arial;
+  margin: 0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+img {
+  vertical-align: middle;
+}
+
+/* Position the image container (needed to position the left and right arrows) */
+.container {
+  position: relative;
+}
+
+/* Hide the images by default */
+.mySlides {
+  display: none;
+}
+
+/* Add a pointer when hovering over the thumbnail images */
+.cursor {
+  cursor: pointer;
+}
+
+/* Next & previous buttons */
+.prev,
+.next {
+  cursor: pointer;
+  position: absolute;
+  top: 40%;
+  width: auto;
+  padding: 16px;
+  margin-top: -50px;
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover,
+.next:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+/* Container for image text */
+.caption-container {
+  text-align: center;
+  background-color: #222;
+  padding: 2px 16px;
+  color: white;
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Six columns side by side */
+.column {
+  float: left;
+  width: 16.66%;
+}
+
+/* Add a transparency effect for thumnbail images */
+.demo {
+  opacity: 0.6;
+}
+
+.active,
+.demo:hover {
+  opacity: 1;
+}
+</style>
+<body>
+
+<h2 style="text-align:center">Slideshow Gallery</h2>
+
+<div class="container">
+  <div class="mySlides">
+    <div class="numbertext">1 / 6</div>
+    <img src="img_woods_wide.jpg" style="width:100%">
+  </div>
+
+  <div class="mySlides">
+    <div class="numbertext">2 / 6</div>
+    <img src="img_5terre_wide.jpg" style="width:100%">
+  </div>
+
+  <div class="mySlides">
+    <div class="numbertext">3 / 6</div>
+    <img src="img_mountains_wide.jpg" style="width:100%">
+  </div>
     
+  <div class="mySlides">
+    <div class="numbertext">4 / 6</div>
+    <img src="img_lights_wide.jpg" style="width:100%">
+  </div>
+
+  <div class="mySlides">
+    <div class="numbertext">5 / 6</div>
+    <img src="img_nature_wide.jpg" style="width:100%">
+  </div>
+    
+  <div class="mySlides">
+    <div class="numbertext">6 / 6</div>
+    <img src="img_snow_wide.jpg" style="width:100%">
+  </div>
+    
+  <a class="prev" onclick="plusSlides(-1)">❮</a>
+  <a class="next" onclick="plusSlides(1)">❯</a>
+
+  <div class="caption-container">
+    <p id="caption"></p>
+  </div>
+
+  <div class="row">
+    <div class="column">
+      <img class="demo cursor" src="img_woods.jpg" style="width:100%" onclick="currentSlide(1)" alt="The Woods">
+    </div>
+    <div class="column">
+      <img class="demo cursor" src="img_5terre.jpg" style="width:100%" onclick="currentSlide(2)" alt="Cinque Terre">
+    </div>
+    <div class="column">
+      <img class="demo cursor" src="img_mountains.jpg" style="width:100%" onclick="currentSlide(3)" alt="Mountains and fjords">
+    </div>
+    <div class="column">
+      <img class="demo cursor" src="img_lights.jpg" style="width:100%" onclick="currentSlide(4)" alt="Northern Lights">
+    </div>
+    <div class="column">
+      <img class="demo cursor" src="img_nature.jpg" style="width:100%" onclick="currentSlide(5)" alt="Nature and sunrise">
+    </div>    
+    <div class="column">
+      <img class="demo cursor" src="img_snow.jpg" style="width:100%" onclick="currentSlide(6)" alt="Snowy Mountains">
+    </div>
+  </div>
+</div>
+
+<script>
+var slideIndex = 1;
+showSlides(slideIndex);
+
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  var i;
+  var slides = document.getElementsByClassName("mySlides");
+  var dots = document.getElementsByClassName("demo");
+  var captionText = document.getElementById("caption");
+  if (n > slides.length) {slideIndex = 1}
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";
+  }
+  for (i = 0; i < dots.length; i++) {
+      dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";
+  dots[slideIndex-1].className += " active";
+  captionText.innerHTML = dots[slideIndex-1].alt;
+}
+</script>
+    
+</body>
 </html>
 
+  </div>
+</body>
+
+<script>
+
+  $("#add-user").on("click", function (event) {
+    event.preventDefault();
+var searchOutfit = {
+
+}
+
+  }
+  )
+
+  $(document).ready(function () {
+
+      $.ajax("/data", {
+        type: "GET"
+      }).then(function (response) {
+        
+        console.log(response)
+        
+      });
+    });
+  

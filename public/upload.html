@@ -2,7 +2,6 @@
 <html lang="en-us">
 
 <head>
-
   <meta charset="UTF-8">
   <title>Sign-Up Today!</title>
 
@@ -62,8 +61,10 @@
                     <label class="season-input" for="seasonid">Season</label>
                     <select class="custom-select my-1 mr-sm-2" id="seasonid">
                       <option selected>Select season</option>
-                      <option value="1">Spring/summer</option>
-                      <option value="2">Fall/winter</option>
+                      <option value="Winter">Winter</option>
+                      <option value="Spring">Spring</option>
+                      <option value="Summer">Summer</option>
+                      <option value="Fall">Fall</option>
                     </select>
                     <form class="form-inline">
                       <label class="type-input" for="seasonid">Type of clothes</label>
@@ -73,14 +74,16 @@
                         <option value="Top">Top</option>
                         <option value="Bottom">Bottom</option>
                         <option value="Shoes">Shoes</option>
-                        
+
                       </select>
                       <form class="form-inline">
                         <label class="occassion-input" for="inlineFormCustomSelectPref">Occassion</label>
                         <select class="custom-select my-1 mr-sm-2" id="occasionid">
-                          <option selected>Select occasions</option>
+                          <option selected>Select occasion</option>
                           <option value="Casual">Casual</option>
-                          <option value="Formal">Formal</option>
+                          <option value="Athletic">Athletic</option>
+                          <option value="Work">Work</option>
+                          <option value="Event">Event</option>
                           <form>
                             <div class="form-group row">
                               <div class="form-group row">
@@ -96,7 +99,7 @@
           </div>
         </div>
       </div>
-</div>
+    </div>
 </body>
 
 
@@ -120,42 +123,37 @@
     };
 
     console.log(newOutfit);
-    // Console log each of the user inputs to confirm we are receiving them
-    // console.log(color);
-    // console.log(sex);
-    // console.log(season);
-    // console.log(type);
-    // console.log(occassion);
-    // console.log(url);
 
     // Send the POST request
-    $.ajax("/api/outfitAdd", {
-    type: "POST",
-    data: newOutfit
-    }).then(function() {
+    $.ajax("/api/create", {
+      type: "POST",
+      data: newOutfit
+    }).then(function () {
       console.log("created new outfit");
       // reload the page to get the updated list
       location.reload();
 
-    // $.post("/api/outfitAdd", newOutfit,
-    //   function (data) {
-    //     if (data) {
-    //       alert("Yay, congratulation on the new outfit");
-    //     }
+      $.post("/api/create", newOutfit,
+        function (data) {
+          if (data) {
+            alert("Yay, congratulation on the new outfit");
+          }
 
-    //     else {
-    //       alert("sorry no outfit for you");
-    //     }
+          else {
+            alert("sorry no outfit for you");
+          }
 
-        // clear the form when saving
-        $("#color-input").val("");
-        $("#sex-input").val("");
-        $("#season-input").val("");
-        $("#type-input").val("");
-        $("#occasion-input").val("");
-        $("#url-input").val("");
-  });
-});
 
+          // clear the form when saving
+          $("#color-input").val("");
+          $("#sex-input").val("");
+          $("#season-input").val("");
+          $("#type-input").val("");
+          $("#occasion-input").val("");
+          $("#url-input").val("");
+
+        });
+    });
+  })
 </script>
 </html>

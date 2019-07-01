@@ -11,11 +11,7 @@ var connection;
     port: 3306,
     user: "root",
     password: "password",
-<<<<<<< HEAD
-    database: "outfit_db"
-=======
     database: "outfits_db"
->>>>>>> 1396d32185d91c0edf842254d94727321e5c4b3b
   });
 
 
