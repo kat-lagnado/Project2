@@ -6,6 +6,7 @@ var router = express.Router();
 var outfit = require("../models/outfit.js");
 
 
+
 router.get("/", function(_req, res) {
   res.sendFile(path.join(__dirname, "../public/index.html"));
  });
@@ -20,12 +21,14 @@ router.get("/", function(_req, res) {
 
 
 
+
 // Create all our routes and set up logic within those routes where required.
 router.get("/data", function(_req, res) {
   outfit.all(function(data) {
     res.json({outfit: data });
   });
 });
+
 
 
 router.get("/graburl", function(_req, res) {
