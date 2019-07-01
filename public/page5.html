@@ -2,12 +2,12 @@
 <html lang="en-us">
 
 <head>
+
   <meta charset="UTF-8">
   <title>Sign-Up Today!</title>
 
   <!-- Bootstrap -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
 </head>
 
@@ -61,31 +61,25 @@
                     <label class="season-input" for="seasonid">Season</label>
                     <select class="custom-select my-1 mr-sm-2" id="seasonid">
                       <option selected>Select season</option>
-
-                      <option value="Winter">Winter</option>
-                      <option value="Spring">Spring</option>
-                      <option value="Summer">Summer</option>
-                      <option value="Fall">Fall</option>
-
+                      <option value="Spring/Summer">Spring/summer</option>
+                      <option value="Fall/Winter">Fall/winter</option>
                     </select>
                     <form class="form-inline">
-                      <label class="type-input" for="seasonid">Type of clothes</label>
+                      <label class="type-input" for="seasonid">Select type of clothes</label>
                       <select class="custom-select my-1 mr-sm-2" id="typeid">
                         <option selected>Select type of clothes...</option>
                         <option value="Accessory">Accessory</option>
                         <option value="Top">Top</option>
                         <option value="Bottom">Bottom</option>
                         <option value="Shoes">Shoes</option>
-
+                        
                       </select>
                       <form class="form-inline">
-                        <label class="occassion-input" for="inlineFormCustomSelectPref">Occassion</label>
-                        <select class="custom-select my-1 mr-sm-2" id="occasionid">
-                          <option selected>Select occasion</option>
-                          <option value="Casual">Casual</option>
-                          <option value="Athletic">Athletic</option>
-                          <option value="Work">Work</option>
-                          <option value="Event">Event</option>
+                        <label class="occassion-input" for="inlineFormCustomSelectPref">occassion</label>
+                        <select class="custom-select my-1 mr-sm-2" id="occassionid">
+                          <option selected>Select occassions</option>
+                          <option value="1">Casual</option>
+                          <option value="2">Formal</option>
                           <form>
                             <div class="form-group row">
                               <div class="form-group row">
@@ -101,11 +95,11 @@
           </div>
         </div>
       </div>
-    </div>
+</div>
 </body>
 
 
-
+<script src="https://code.jquery.com/jquery.js"></script>
 
 <!-- JavaScript -->
 <script>
@@ -125,43 +119,35 @@
     };
 
     console.log(newOutfit);
-
+    
     // Send the POST request
     $.ajax("/api/create", {
-
-      type: "POST",
-      data: newOutfit
-    }).then(function () {
-
+    type: "POST",
+    data: newOutfit
+    }).then(function() {
       console.log("created new outfit");
       // reload the page to get the updated list
       location.reload();
 
+    // $.post("/api/outfitAdd", newOutfit,
+    //   function (data) {
+    //     if (data) {
+    //       alert("Yay, congratulation on the new outfit");
+    //     }
 
-      $.post("/api/create", newOutfit,
-        function (data) {
-          if (data) {
-            alert("Yay, congratulation on the new outfit");
-          }
+    //     else {
+    //       alert("sorry no outfit for you");
+    //     }
 
-          else {
-            alert("sorry no outfit for you");
-          }
-
-
-          // clear the form when saving
-          $("#color-input").val("");
-          $("#sex-input").val("");
-          $("#season-input").val("");
-          $("#type-input").val("");
-          $("#occasion-input").val("");
-          $("#url-input").val("");
+        // clear the form when saving
+        $("#color-input").val("");
+        $("#sex-input").val("");
+        $("#season-input").val("");
+        $("#type-input").val("");
+        $("#occasion-input").val("");
+        $("#url-input").val("");
   });
 });
 
-
-        });
-    });
-  })
 </script>
 </html>
