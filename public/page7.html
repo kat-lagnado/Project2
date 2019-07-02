@@ -3,7 +3,7 @@
 
 <head>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
+    <script src="https://code.jquery.com/jquery.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 </head>
@@ -108,17 +108,12 @@ img {
 
 <h2 style="text-align:center">Slideshow Gallery</h2>
 
-<div class="container"></div>
+<div class="container">
+  <div class="row"></div>
+    <a class="prev" onclick="plusSlides(-1)">❮</a>
+    <a class="next" onclick="plusSlides(1)">❯</a>
+  </div>
 
-<div class="row"></div>
-
-
-  
-  
-    <!-- <a class="prev" onclick="plusSlides(-1)">❮</a>
-  <a class="next" onclick="plusSlides(1)">❯</a> -->
-
-  
 
 <script>
 
@@ -129,26 +124,23 @@ $.get("/data", function(data) {
       .addClass("mySlides");
       var innerDiv = $("<div>")
 .addClass("numbertext").text((i + 1) + " / " + data.outfit.length);
-var image = $("<img>").attr("src", data.outfit [i].url).attr("style", "width:50%");
+var image = $("<img>").attr("src", data.outfit[i].url).attr("style", "width:100%");
 $(".container").append(div.append(innerDiv.append(image)));
       
       
       var prev = $("<a>").addClass("prev").attr("onClick", plusSlides(-1)).text("&#10094;");
           var next = $("<a>").addClass("next").attr("onClick", plusSlides(1)).text("&#10095;");
             $(".container").append(prev, next);
-
-  
-
   }   
   
   for (var j = 0; j < data.outfit.length; j++) {
     var div = $("<div>").addClass("column");
-      var image = $("<img>").addClass("demo cursor").attr("src", data.outfit[j].url).attr("style", "width:16%").attr("onClick", currentSlide(j + 1));
+      var image = $("<img>").addClass("demo cursor").attr("src", data.outfit[j].url).attr("style", "width:50%").attr("onClick", currentSlide(j + 1));
       $(".row").append(div.append(image))
     }
 
       showSlides(slideIndex);
-})
+  })
 
 var slideIndex = 1;
 
@@ -162,21 +154,49 @@ function currentSlide(n) {
 }
 
 function showSlides(n) {
-  var i;
-  var slides = document.getElementsByClassName("mySlides");
-  var dots = document.getElementsByClassName("demo");
-  var captionText = document.getElementById("caption");
-  if (n > slides.length) {slideIndex = 1}
-  if (n < 1) {slideIndex = slides.length}
-  for (i = 0; i < slides.length; i++) {
-      slides[i].style.display = "none";
-  }
-  for (i = 0; i < dots.length; i++) {
-      dots[i].className = dots[i].className.replace(" active", "");
-  }
-  slides[slideIndex-1].style.display = "block";
-  dots[slideIndex-1].className += " active";
-  captionText.innerHTML = dots[slideIndex-1].alt;
+
+  // var slides = document.getElementsByClassName("mySlides");
+  // //var dots = document.getElementsByClassName("demo");
+  // var captionText = document.getElementById("caption");
+  // if (n > slides.length) {slideIndex = 1}
+  // if (n < 1) {slideIndex = slides.length}
+  // for (i = 0; i < slides.length; i++) {
+  //     slides[i].style.display = "none";
+  // }
+  // // for (i = 0; i < dots.length; i++) {
+  //     dots[i].className = dots[i].className.replace(" active", "");
+  // }
+  // slides[slideIndex-1].style.display = "block";
+  //dots[slideIndex-1].className += " active";
+  // captionText.innerHTML = dots[slideIndex-1].alt;
+
+
+
+
+  // $.get("/data", function(data) {
+  // console.log(data);
+  
+  //   var div = $("<div>")
+  //     .addClass("mySlides");
+  //     var innerDiv = $("<div>")
+  //     .addClass("numbertext").text((n) + " / " + data.outfit.length);
+  //     var image = $("<img>").attr("src", data.outfit[n].url).attr("style", "width:100%");
+  //   $(".container").append(image);
+  
+  
+  // for (var j = 0; j < data.outfit.length; j++) {
+  //   var div = $("<div>").addClass("column");
+  //     var image = $("<img>").addClass("demo cursor").attr("src", data.outfit[j].url).attr("style", "width:50%").attr("onClick", currentSlide(j + 1));
+  //     $("#row2").append(div.append(image))
+  //   }
+
+      // showSlides(slideIndex);
+  // })
+
+  // var image = $("<img>").attr("src", data.outfit[n].url).attr("style", "width:100%");
+  // //$(".container").append(div.append(innerDiv.append(image)));
+  // $(".container").append(image);
+
 }
 </script>
     
