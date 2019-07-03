@@ -7,12 +7,13 @@
   <title>Sign-Up Today!</title>
   <!-- Bootstrap -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-  <script scr="js/client.js"></script>
-  <script defer>
+  
+  
+  <!-- <script defer>
     $(document).ready(function () {
       loaddata();
     });
-  </script>
+  </script> -->
 </head>
 
 <body>
@@ -27,37 +28,39 @@
           </div>
           <form class="form-inline">
             <label class="sex-input" for="inlineFormCustomSelectPref">Gender</label>
-            <select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref">
+            <select class="custom-select my-1 mr-sm-2" id="gender">
               <option selected>Choose...</option>
-              <option value="1">male</option>
-              <option value="2">female</option>
-              <option value="2">unisex</option>
+              <option value="male">male</option>
+              <option value="female">female</option>
+              <option value="unisex">unisex</option>
             </select>
             <form class="form-inline">
               <label class="season-input" for="inlineFormCustomSelectPref">Season</label>
-              <select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref">
+              <select class="custom-select my-1 mr-sm-2" id="season">
                 <option selected>Choose...</option>
-                <option value="1">Spring/summer</option>
-                <option value="2">fall/winter</option>
+                <option value="summer">summer</option>
+                <option value="spring">Spring</option>
+                <option value="fall">fall</option>
+                <option value="winter">winter</option>
               </select>
               <form class="form-inline">
-                <label class="type-input" for="inlineFormCustomSelectPref">Season</label>
-                <select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref">
+                <label class="type-input" for="inlineFormCustomSelectPref">type of garment</label>
+                <select class="custom-select my-1 mr-sm-2" id="type">
                   <option selected>Choose...</option>
-                  <option value="1">Hat</option>
-                  <option value="2">top</option>
-                  <option value="3">bottom</option>
-                  <option value="4">shoes</option>
-                  <option value="4">accessory</option>
+                  <option value="hat">Hat</option>
+                  <option value="top">top</option>
+                  <option value="bpttom">bottom</option>
+                  <option value="shoes">shoes</option>
+                  <option value="accessory">accessory</option>
                 </select>
                 <form class="form-inline">
                   <label class="occassion-input" for="inlineFormCustomSelectPref">occassion</label>
-                  <select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref">
+                  <select class="custom-select my-1 mr-sm-2" id="occassion">
                     <option selected>Choose...</option>
-                    <option value="1">Casual</option>
-                    <option value="2">formal</option>
+                    <option value="Casual">Casual</option>
+                    <option value="formal">formal</option>
                   </select>
-                  <button class="btn btn-default" id="add-user" type="submit">Submit</button>
+                  <button class="btn btn-default" id="getoutfit" type="submit">Submit</button>
                 </form>
             </div>
       </div>
@@ -66,15 +69,13 @@
         <div class="card bg-light mb-3" style="max-width: 18rem;">
           <div class="card-header">Hat</div>
           <div class="card-body">
-            <h5 class="card-title">title</h5>
-            <p class="card-text">picture 1</p>
+            <p class="card-text"><img src="https://kakiseni.org/wp-content/uploads/2018/03/250X250.png"></p>
           </div>
         </div>
         <div class="card bg-light mb-3" style="max-width: 18rem;">
           <div class="card-header">top</div>
           <div class="card-body">
-            <h5 class="card-title">title</h5>
-            <p class="card-text">picture 2</p>
+            <p class="card-text"><img src="https://kakiseni.org/wp-content/uploads/2018/03/250X250.png"></p>
           </div>
         </div>
       </div>
@@ -83,15 +84,13 @@
         <div class="card bg-light mb-3" style="max-width: 18rem;">
           <div class="card-header">bottom</div>
           <div class="card-body">
-            <h5 class="card-title">title</h5>
-            <p class="card-text">picture 3</p>
+            <p class="card-text"><img src="https://kakiseni.org/wp-content/uploads/2018/03/250X250.png"></p>
           </div>
         </div>
         <div class="card bg-light mb-3" style="max-width: 18rem;">
           <div class="card-header">shoes</div>
           <div class="card-body">
-            <h5 class="card-title">title</h5>
-            <p class="card-text">picture 4</p>
+            <p class="card-text"><img src="https://kakiseni.org/wp-content/uploads/2018/03/250X250.png"></p>
           </div>
         </div>
       </div>
@@ -108,4 +107,9 @@
     </div>
   </div>
 </div>
+<script
+  src="https://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous"></script>
+  <script src="./js/client.js"></script>
 </body>

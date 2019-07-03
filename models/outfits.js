@@ -7,6 +7,11 @@ var outfit = {
       cb(res);
     });
   },
+  getimages: function(cb) {
+    orm.getimages("url", "outfits", function(res) {
+     cb(res);
+   });
+  },
   // The variables cols and vals are arrays.
   create: function(cols, vals, cb) {
     orm.create("outfit", cols, vals, function(res) {

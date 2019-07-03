@@ -9,13 +9,29 @@ router.get("/", function(req, res) {
   res.sendFile(path.join(__dirname, "../public/upload.html"));
 });
 
+router.get("/page6.html", function(req, res) {
+  res.sendFile(path.join(__dirname, "../public/page6.html"));
+});
+
+router.get("/page7.html", function(req, res) {
+  res.sendFile(path.join(__dirname, "../public/page7.html"));
+});
+
 // Create all our routes and set up logic within those routes where required.
 router.get("/data", function(req, res) {
+  
   outfit.all(function(data) {
+    
     res.json({ outfit: data });
   });
 });
-
+router.post("/api/outfits",function(req,res){
+  console.log(req.body)
+  outfit.all(function(data) {
+    console.log("sent")
+    res.json({ outfit: data });
+})
+})
 // router.post("/api/add", function(req, res) {
 //   outfit.create([
 //     "type", "occasion", "season", "color", "gender"

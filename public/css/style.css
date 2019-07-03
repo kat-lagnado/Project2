@@ -37,9 +37,9 @@
     background-color: rgb(158, 163, 158);
     color: white;
     border-radius: 40px;
-    position:fixed;
-    left: 40px;
-    top:20px;
+    position:relative;
+    left: 0px;
+    top:-7px;
     padding: 6px;
     font-size: 16px;
     border: none;
@@ -77,10 +77,50 @@
     background-color: #5d5e5d;
     text-decoration-color: white;
   }
-  #rcorners3 {
-    border-radius: 15px 50px;
-    background: silver;
-    padding: 20px; 
-    width: 200px;
-    height: 150px; 
-  } 
+
+
+#rcorners {
+  border-radius: 35px;
+  border: 5px white;
+  background-image: url("../images/layout/1.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 20px; 
+  width: 97%;
+  height: 600px; 
+}
+.buttons2 {
+  background-color: orange;
+  font: black;
+  height: 100px;
+  width: 20px;
+  border-radius:25px;
+  opacity:1;
+  z-index: 1;
+}
+.menu {
+  border-radius: 25px;
+  background-color: white; 
+  padding: 20px; 
+  width: 70%;
+  height: 400px;  
+  opacity: .8;
+}
+#rcorners2 {
+  border-radius: 35px;
+  border: 5px white;
+  background-color: white ;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 20px; 
+  width: 97%;
+  height: 600px; 
+}
+#2 {
+  position: absolute;
+  left:400px;
+  top: -7;
+}
+
