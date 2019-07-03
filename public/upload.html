@@ -61,11 +61,14 @@
                   <form class="form-inline">
                     <label class="season-input" for="seasonid">Season</label>
                     <select class="custom-select my-1 mr-sm-2" id="seasonid">
+
                       <option value="" selected></option>
+
                       <option value="Winter">Winter</option>
                       <option value="Spring">Spring</option>
                       <option value="Summer">Summer</option>
                       <option value="Fall">Fall</option>
+
                     </select>
                     <form class="form-inline">
                       <label class="type-input" for="seasonid">Type of clothes</label>
@@ -136,13 +139,17 @@ if (!newOutfit.type || !newOutfit.color || !newOutfit.occasion || !newOutfit.gen
 // }
     // Send the POST request
     $.ajax("/api/create", {
+
       type: "POST",
       data: newOutfit
     }).then(function () {
+
       if (newOutfit == "")
       console.log("not cool");
+
       // reload the page to get the updated list
       location.reload();
+
 
       $.post("/api/create", newOutfit,
         function(data) {
@@ -161,6 +168,7 @@ if (!newOutfit.type || !newOutfit.color || !newOutfit.occasion || !newOutfit.gen
           $("#type-input").val("");
           $("#occasion-input").val("");
           $("#url-input").val("");
+
           $("#helperid").text("");
 
         });
