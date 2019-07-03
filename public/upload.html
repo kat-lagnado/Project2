@@ -19,7 +19,7 @@
 
     <!-- Jumbotron -->
     <div class="jumbotron">
-      <h1 class="text-center">Clothes Uplaoder</h1>
+      <h1 class="text-center">Clothes Uploader</h1>
     </div>
 
     <div class="row">
@@ -37,7 +37,8 @@
               <form class="form-inline">
                 <label class="color-input" for="colorid">Color</label>
                 <select class="custom-select my-1 mr-sm-2" id="colorid">
-                  <option selected>Select color</option>
+                  <!-- <option selected>Select color</option> -->
+                  <option value="" selected></option>
                   <option value="Red">Red</option>
                   <option value="Blue">Blue</option>
                   <option value="Yellow">Yellow</option>
@@ -52,7 +53,7 @@
                 <form class="form-inline">
                   <label class="sex-input" for="inlineFormCustomSelectPref">Gender</label>
                   <select class="custom-select my-1 mr-sm-2" id="sexid">
-                    <option selected>Select your gender</option>
+                    <option value="" selected></option>
                     <option value="Male">Male</option>
                     <option value="Female">Female</option>
                     <option value="Unisex">Unisex</option>
@@ -60,7 +61,8 @@
                   <form class="form-inline">
                     <label class="season-input" for="seasonid">Season</label>
                     <select class="custom-select my-1 mr-sm-2" id="seasonid">
-                      <option selected>Select season</option>
+
+                      <option value="" selected></option>
 
                       <option value="Winter">Winter</option>
                       <option value="Spring">Spring</option>
@@ -71,17 +73,17 @@
                     <form class="form-inline">
                       <label class="type-input" for="seasonid">Type of clothes</label>
                       <select class="custom-select my-1 mr-sm-2" id="typeid">
-                        <option selected>Select type of clothes...</option>
+                        <option value="" selected></option>
                         <option value="Accessory">Accessory</option>
                         <option value="Top">Top</option>
                         <option value="Bottom">Bottom</option>
                         <option value="Shoes">Shoes</option>
 
                       </select>
-                      <form class="form-inline">
-                        <label class="occassion-input" for="inlineFormCustomSelectPref">Occassion</label>
+                      <form class="form-inline" method="POST" action="form-handler" onsubmit="return checkForm(this);">
+                        <label class="occassion-input" for="inlineFormCustomSelectPref">Occasion</label>
                         <select class="custom-select my-1 mr-sm-2" id="occasionid">
-                          <option selected>Select occasion</option>
+                          <option value="" selected></option>
                           <option value="Casual">Casual</option>
                           <option value="Athletic">Athletic</option>
                           <option value="Work">Work</option>
@@ -91,8 +93,8 @@
                               <div class="form-group row">
                                 <label for="url-input" class="col-sm-2 col-form-label">URL of Image:</label>
                                 <div class="col-sm-10">
-                                  <input type="text" class="form-control" id="inputPassword"
-                                    placeholder="place image url here">
+                                  <input type="text" class="form-control" id="inputPassword">
+                                  <p id="helperid"></p>
                                 </div>
                               </div>
                           </form>
@@ -123,9 +125,18 @@
       gender: $("#sexid").val(),
       url: $("#inputPassword").val()
     };
-
+if (!newOutfit.type || !newOutfit.color || !newOutfit.occasion || !newOutfit.gender || !newOutfit.season || !newOutfit.url) {
+  $("#helperid").text("Please enter all fields")
+  return false
+}
     console.log(newOutfit);
-
+// function checkForm(form) {
+//   if(form.inputfield.value == "") {
+// alert("Error: Input is empty")
+// form.inputfield.focus();
+// return false;
+//   }
+// }
     // Send the POST request
     $.ajax("/api/create", {
 
@@ -133,21 +144,22 @@
       data: newOutfit
     }).then(function () {
 
-      console.log("created new outfit");
+      if (newOutfit == "")
+      console.log("not cool");
+
       // reload the page to get the updated list
       location.reload();
 
 
       $.post("/api/create", newOutfit,
-        function (data) {
+        function(data) {
           if (data) {
             alert("Yay, congratulation on the new outfit");
           }
 
           else {
-            alert("sorry no outfit for you");
+            alert("Form must be filled");
           }
-
 
           // clear the form when saving
           $("#color-input").val("");
@@ -156,9 +168,8 @@
           $("#type-input").val("");
           $("#occasion-input").val("");
           $("#url-input").val("");
-  });
-});
 
+          $("#helperid").text("");
 
         });
     });
